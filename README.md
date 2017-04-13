@@ -1,18 +1,18 @@
 Firstly, we should be aware of the fact that whether a driver for a USB device is there or not on a Linux system, a valid USB device will always be detected at the hardware and kernel spaces of a USB-enabled Linux system, since it is designed (and detected) as per the USB protocol specifications. At the hardware level, the Hardware-space detection is done by the USB host controller which is typically a native bus device The corresponding host controller driver would pick and translate the low-level physical layer information into higher-level USB protocol-specific information. The USB protocol formatted information about the USB device is then populated into the generic USB core layer (the usbcore driver) in kernel-space, thus enabling the detection of a USB device in kernel-space, even without having its specific driver available.
 A basic listing of all detected USB devices can be obtained using the lsusb command, as root.
 
-COMMANDS USED:
-⦁	lsusb (It is used to view all the usb devices connected ) 
-⦁	lsusb –v (Is is used to give a detailed view of the usb devices connected)
-⦁	cat /sys/kernel/debug/usb/devices (It also gives detail info of the connected devices including the details of interfaces and endpoints)
-⦁	sudo –i (in order to log in from root)
-⦁	make (to compile a module)
-⦁	insmod (inserting a module)
-⦁	rmmod (removing a module)
-⦁	modprobe (inserting back a module)
-⦁	mount (lists all mounted devices)
-⦁	fdisk –l (Gives detailed info of the mounted disks)
-⦁	mkdir (create new directory)
+COMMANDS USED:<br>
+⦁	lsusb (It is used to view all the usb devices connected ) <br> 
+⦁	lsusb –v (Is is used to give a detailed view of the usb devices connected)<br>
+⦁	cat /sys/kernel/debug/usb/devices (It also gives detail info of the connected devices including the details of interfaces and endpoints)<br>
+⦁	sudo –i (in order to log in from root)<br>
+⦁	make (to compile a module)<br>
+⦁	insmod (inserting a module)<br>
+⦁	rmmod (removing a module)<br>
+⦁	modprobe (inserting back a module)<br>
+⦁	mount (lists all mounted devices)<br>
+⦁	fdisk –l (Gives detailed info of the mounted disks)<br>
+⦁	mkdir (create new directory)<br>
 
 
 The source code is very simple. The header files used are linux/module.h, linux/kernel.h and linux/usb.h. The must important structure is our usb_driver structure. It is the core of our code. It includes 4 main branches. Name, id , prob and disconnect. There are three functions defined inside the structure of usb_driver. Name is simply the name of the device driver.
